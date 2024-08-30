@@ -1,7 +1,7 @@
 {
-  "name": "fit5032-assigment",
-  "version": "0.0.0",
+  "name": "FIT5032—Assigment",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,11 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.29"
+    "element-plus": "^2.7.7",
+    "vue": "^3.4.29",
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
-    "vite": "^5.3.1",
-    "vite-plugin-vue-devtools": "^7.3.1"
+    "vite": "^5.3.1"
   }
 }
