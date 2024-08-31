@@ -8,13 +8,13 @@ const verify = () => {
     let token = localStorage.getItem('token')
     if(!token){
         router.push('/login')
-        ElMessage('请登录！')
+        ElMessage('Please login!')
     }
 }
 const logout = () => {
     localStorage.removeItem('token')
     ElMessage({
-            message: '退出成功！',
+            message: 'Quit Success!',
             type: 'success',
         })
     router.push('/login')
@@ -34,15 +34,14 @@ verify()
                 text-color="#fff"
                 active-text-color="#ffd04b"
             >
-                <el-menu-item index="1" @click="router.push('/main')">首页</el-menu-item>
-                <el-menu-item index="2">活动页</el-menu-item>
-                <el-menu-item index="3">关于我们</el-menu-item>
-                <el-menu-item index="4">新闻</el-menu-item>
-                <el-menu-item index="5">生活导航</el-menu-item>
-                <el-menu-item index="6">小组</el-menu-item>
-                <el-menu-item index="7">心理诊所</el-menu-item>
-                <!-- <el-menu-item index="4" @click="router.push('/order')">订单管理</el-menu-item> -->
-                <div class="username" @click="logout">退出</div>
+                <el-menu-item index="1" @click="router.push('/mainpageuser')">Home page</el-menu-item>
+                <el-menu-item index="2" @click="router.push('/activity')">Activity</el-menu-item>
+                <el-menu-item index="3" @click="router.push('/aboutus')">About us</el-menu-item>
+                <el-menu-item index="4">News</el-menu-item>
+                <el-menu-item index="5">Life Navigation</el-menu-item>
+                <el-menu-item index="6">Group</el-menu-item>
+                <el-menu-item index="7">Psychological Clinic</el-menu-item>
+                <div class="username" @click="logout">Logout</div>
             </el-menu>
         </div>
         <div class="component">

@@ -10,24 +10,31 @@
         localStorage.setItem('admin', '[]')
     }
     const role = ref('普通用户')
-    //储存用户名和密码的容器
+    //Store usernames and passwords
     const ruleForm = reactive({
         userName: '',
         password: '',
         confirmpassword: ''
     })
 
+    const tableData = ref([])
+    JSON.parse(localStorage.getItem('user')).forEach(item => {
+        tableData.value.push({role: '普通用户', name: item.name, password: item.password})
+    })
+    JSON.parse(localStorage.getItem('admin')).forEach(item => {
+        tableData.value.push({role: '管理员', name: item.name, password: item.password})
+    })
     const verify = () => {
         if(ruleForm.userName.length > 20){
-            ElMessage('用户名不能超过20字！')
+            ElMessage('Username cannot exceed 20 characters!')
             return false
         }
         if(ruleForm.password.length > 16 || ruleForm.password.length < 6){
-            ElMessage('密码长度要在6到16字之间！')
+            ElMessage('The password length must be between 6 and 16 characters!')
             return false
         }
         if(ruleForm.password !== ruleForm.confirmpassword){
-            ElMessage('确认密码要与密码一致！')
+            ElMessage('Confirm password must be consistent with password!')
             return false
         }
         return true
@@ -39,7 +46,7 @@
                 user.push({name: ruleForm.userName, password: ruleForm.password})
                 localStorage.setItem('user', JSON.stringify(user))
                 ElMessage({
-                    message: '注册成功！',
+                    message: 'Successful registration!',
                     type: 'success',
                 })
                 setTimeout(() => {
@@ -50,7 +57,7 @@
                 user.push({name: ruleForm.userName, password: ruleForm.password})
                 localStorage.setItem('admin', JSON.stringify(user))
                 ElMessage({
-                    message: '注册成功！',
+                    message: 'Successful registration!',
                     type: 'success',
                 })
                 setTimeout(() => {
@@ -64,11 +71,11 @@
 <template>
     <div class="outer">
         <div class="wrapper">
-            <div class="Login-title">注册</div>
+            <div class="Login-title">Register</div>
             <div class="mb-2 ml-4">
                 <el-radio-group v-model="role">
-                <el-radio value="普通用户" size="large">普通用户</el-radio>
-                <el-radio value="管理员" size="large">管理员</el-radio>
+                <el-radio value="普通用户" size="large">User</el-radio>
+                <el-radio value="管理员" size="large">Administrator</el-radio>
                 </el-radio-group>
             </div>
             <div class="Login-window">
@@ -85,42 +92,100 @@
                     </el-form-item>
                     <el-form-item label="密码" prop="password">
                         <el-input
-                        v-model="ruleForm.confirmpassword"
+                        v-model="ruleForm.password"
                         type="password"
                         autocomplete="off"
                         />
                     </el-form-item>
                     <el-form-item label="确认密码" prop="password">
                         <el-input
-                        v-model="ruleForm.password"
+                        v-model="ruleForm.confirmpassword"
                         type="password"
                         autocomplete="off"
                         />
                     </el-form-item>
                     <el-form-item>
                         <el-button type="primary" :plain="true" style="margin-left: 30px;" @click="reg">
-                            注册
+                            Register
                         </el-button>
-                        <div class="reg"><a href="" @click="router.push('/login')">返回登录</a></div>
+                        <div class="reg"><a href="" @click="router.push('/login')">Back to Login</a></div>
                     </el-form-item>
                 </el-form>
             </div>
+        </div>
+        <div class="tables">
+            <el-table :data="tableData" stripe style="width: 50%" class="table">
+                <el-table-column prop="role" label="User Type" width="180" />
+                <el-table-column prop="name" label="User" width="180" />
+                <el-table-column prop="password" label="Password" />
+            </el-table>
         </div>
     </div>
 </template>
 
 <style scoped>
-    .wrapper{
-        position: relative;
-        width: 25%;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 1px solid #ccc;
-        box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
-        margin-top: 30px;
-        background-color: #fff;
+        .tables{
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+        }
+        .table{
+            width: 50vw;
+            box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
+        }
+        @media all and (max-width: 992px) {
+        .wrapper{
+            position: relative;
+            width: 50%;
+            margin: 5vh auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
+            margin-top: 30px;
+            background-color: #fff;
+        }
+        .ref{
+            width: 50%;
+            margin: 5vh auto;
+        }
+    }
+    @media all and (min-width: 992px) {
+        .wrapper{
+            position: relative;
+            width: 30%;
+            margin: 5vh auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
+            margin-top: 30px;
+            background-color: #fff;
+        }
+        .ref{
+            width: 30%;
+            margin: 5vh auto;
+        }
+    }
+    @media all and (max-width: 768px) {
+        .wrapper{
+            position: relative;
+            width: 75%;
+            margin: 5vh auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
+            margin-top: 30px;
+            background-color: #fff;
+        }
+        .ref{
+            width: 75%;
+            margin: 5vh auto;
+        }
     }
     .Login-title{
         width: 100%;
@@ -143,7 +208,8 @@
         background: url(../images/background.webp) no-repeat;
         background-size: cover;
         display: flex;
-    }   
+        flex-direction: column;
+    }     
     .reg{
         margin-left: 3vw;
     }

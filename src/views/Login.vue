@@ -4,26 +4,26 @@
     import { useRouter } from 'vue-router';
     const router = useRouter()
     const role = ref('普通用户')
-    //登录成功时的气泡显示函数
+    //Tips for successful login
     const success = () => {
         ElMessage({
-            message: '登陆成功！',
+            message: 'Login successful!',
             type: 'success',
         })
     }
 
-    //登录失败时气泡显示函数
+    //Tips for fail login
     const error = () => {
-        ElMessage.error('用户名或密码错误！')
+        ElMessage.error('Wrong username or password!')
     }
 
-    //储存用户名和密码的容器
+    //Storeusernames and passwords
     const ruleForm = reactive({
         userName: '',
         password: '',
     })
 
-    // 用户登录函数
+    // user login
     const login = async () => {
         if(role.value == '普通用户'){
             let user = JSON.parse(localStorage.getItem('user'))
@@ -32,7 +32,7 @@
                 success()
                 localStorage.setItem('token', ruleForm.userName)
                 setTimeout(() => {
-                    router.push('/mainuser')
+                    router.push('/mainpageuser')
                 }, 1000)
             }else{
                 error()
@@ -57,11 +57,11 @@
 <template>
     <div class="outer">
         <div class="wrapper">
-            <div class="Login-title">登录</div>
+            <div class="Login-title">Login</div>
             <div class="mb-2 ml-4">
                 <el-radio-group v-model="role">
-                <el-radio value="普通用户" size="large">普通用户</el-radio>
-                <el-radio value="管理员" size="large">管理员</el-radio>
+                <el-radio value="普通用户" size="large">User</el-radio>
+                <el-radio value="管理员" size="large">Administrator</el-radio>
                 </el-radio-group>
             </div>  
             <div class="Login-window">
@@ -85,18 +85,76 @@
                     </el-form-item>
                     <el-form-item>
                         <el-button type="primary" :plain="true" @click="login" style="margin-left: 30px;">
-                            登录
+                        Login
                         </el-button>
-                        <div class="reg"><a href="" @click="router.push('/reg')">注册</a></div>
+                        <div class="reg"><a href="" @click="router.push('/reg')">Register</a></div>
                     </el-form-item>
                 </el-form>
             </div>
         </div>
+        <!-- <el-descriptions title="用户信息" class="ref" column="1">
+            <el-descriptions-item label="用户名">{{ ruleForm.userName }}</el-descriptions-item>
+            <el-descriptions-item label="密码">{{ ruleForm.password }}</el-descriptions-item>
+        </el-descriptions> -->
     </div>
 </template>
 
 <style scoped>
-    .wrapper{
+    @media all and (max-width: 992px) {
+        .wrapper{
+            position: relative;
+            width: 50%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
+            margin-top: 30px;
+            background-color: #fff;
+        }
+        .ref{
+            width: 50%;
+            margin: 5vh auto;
+        }
+    }
+    @media all and (min-width: 992px) {
+        .wrapper{
+            position: relative;
+            width: 30%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
+            margin-top: 30px;
+            background-color: #fff;
+        }
+        .ref{
+            width: 30%;
+            margin: 5vh auto;
+        }
+    }
+    @media all and (max-width: 768px) {
+        .wrapper{
+            position: relative;
+            width: 75%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
+            margin-top: 30px;
+            background-color: #fff;
+        }
+        .ref{
+            width: 75%;
+            margin: 5vh auto;
+        }
+    }
+    /* .wrapper{
         position: relative;
         width: 25%;
         margin: auto;
@@ -107,7 +165,7 @@
         box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
         margin-top: 30px;
         background-color: #fff;
-    }
+    } */
     .Login-title{
         width: 100%;
         height: 40px;
@@ -129,6 +187,7 @@
         background: url(../images/background.webp) no-repeat;
         background-size: cover;
         display: flex;
+        flex-direction: column;
     }   
     .reg{
         margin-left: 3vw;

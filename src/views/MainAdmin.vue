@@ -8,13 +8,13 @@ const verify = () => {
     let token = localStorage.getItem('token')
     if(!token){
         router.push('/login')
-        ElMessage('请登录！')
+        ElMessage('Please login')
     }
 }
 const logout = () => {
     localStorage.removeItem('token')
     ElMessage({
-            message: '退出成功！',
+            message: 'Exit Success!',
             type: 'success',
         })
     router.push('/login')
@@ -34,8 +34,8 @@ verify()
                 text-color="#fff"
                 active-text-color="#ffd04b"
             >
-                <el-menu-item index="1" @click="router.push('/main')">首页</el-menu-item>
-                <div class="username" @click="logout">退出</div>
+                <el-menu-item index="1" @click="router.push('/mainadmin')">Home Page</el-menu-item>
+                <div class="username" @click="logout">Quit login</div>
             </el-menu>
         </div>
         <div class="component">
@@ -72,7 +72,7 @@ verify()
     padding-bottom: 5vh;
     text-align: center;
     padding-top: 5vh;
-    font-size: 30px;
+    font-size: 2.5vw;
 }
 .banner{
     width: 100%;
