@@ -3,7 +3,7 @@
     import { ElMessage } from 'element-plus'
     import { useRouter } from 'vue-router';
     const router = useRouter()
-    const role = ref('普通用户')
+    const role = ref('NormalUser')
     //Tips for successful login
     const success = () => {
         ElMessage({
@@ -25,7 +25,7 @@
 
     // user login
     const login = async () => {
-        if(role.value == '普通用户'){
+        if(role.value == 'NormalUser'){
             let user = JSON.parse(localStorage.getItem('user'))
             let USER = user.filter(item => item.name == ruleForm.userName && item.password == ruleForm.password)
             if(USER[0]){
@@ -37,7 +37,7 @@
             }else{
                 error()
             }
-        }else if(role.value == '管理员'){
+        }else if(role.value == 'Administrator'){
             let user = JSON.parse(localStorage.getItem('admin'))
             let USER = user.filter(item => item.name == ruleForm.userName && item.password == ruleForm.password)
             if(USER[0]){
@@ -60,8 +60,8 @@
             <div class="Login-title">Login</div>
             <div class="mb-2 ml-4">
                 <el-radio-group v-model="role">
-                <el-radio value="普通用户" size="large">User</el-radio>
-                <el-radio value="管理员" size="large">Administrator</el-radio>
+                <el-radio value="NormalUser" size="large">User</el-radio>
+                <el-radio value="Administrator" size="large">Administrator</el-radio>
                 </el-radio-group>
             </div>  
             <div class="Login-window">
@@ -73,10 +73,10 @@
                 label-width="auto"
                 class="demo-ruleForm"
                 >
-                    <el-form-item label="用户名" prop="userName">
+                    <el-form-item label="Username" prop="userName">
                         <el-input v-model="ruleForm.userName" type="text" autocomplete="off" />
                     </el-form-item>
-                    <el-form-item label="密码" prop="password">
+                    <el-form-item label="Password" prop="password">
                         <el-input
                         v-model="ruleForm.password"
                         type="password"

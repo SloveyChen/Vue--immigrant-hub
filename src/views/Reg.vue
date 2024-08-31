@@ -9,7 +9,7 @@
     if(!localStorage.getItem('admin')){
         localStorage.setItem('admin', '[]')
     }
-    const role = ref('普通用户')
+    const role = ref('NormalUser')
     //Store usernames and passwords
     const ruleForm = reactive({
         userName: '',
@@ -19,10 +19,10 @@
 
     const tableData = ref([])
     JSON.parse(localStorage.getItem('user')).forEach(item => {
-        tableData.value.push({role: '普通用户', name: item.name, password: item.password})
+        tableData.value.push({role: 'NormalUser', name: item.name, password: item.password})
     })
     JSON.parse(localStorage.getItem('admin')).forEach(item => {
-        tableData.value.push({role: '管理员', name: item.name, password: item.password})
+        tableData.value.push({role: 'Administrator', name: item.name, password: item.password})
     })
     const verify = () => {
         if(ruleForm.userName.length > 20){
@@ -41,7 +41,7 @@
     }
     const reg = () => {
         if(verify()){
-            if(role.value == '普通用户'){
+            if(role.value == 'NormalUser'){
                 let user = JSON.parse(localStorage.getItem('user'))
                 user.push({name: ruleForm.userName, password: ruleForm.password})
                 localStorage.setItem('user', JSON.stringify(user))
@@ -52,7 +52,7 @@
                 setTimeout(() => {
                     router.push('/login')
                 }, 1000)
-            }else if(role.value == '管理员'){
+            }else if(role.value == 'Administrator'){
                 let user = JSON.parse(localStorage.getItem('admin'))
                 user.push({name: ruleForm.userName, password: ruleForm.password})
                 localStorage.setItem('admin', JSON.stringify(user))
@@ -74,8 +74,8 @@
             <div class="Login-title">Register</div>
             <div class="mb-2 ml-4">
                 <el-radio-group v-model="role">
-                <el-radio value="普通用户" size="large">User</el-radio>
-                <el-radio value="管理员" size="large">Administrator</el-radio>
+                <el-radio value="NormalUser" size="large">User</el-radio>
+                <el-radio value="Administrator" size="large">Administrator</el-radio>
                 </el-radio-group>
             </div>
             <div class="Login-window">
@@ -87,17 +87,17 @@
                 label-width="auto"
                 class="demo-ruleForm"
                 >
-                    <el-form-item label="用户名" prop="userName">
+                    <el-form-item label="Username" prop="userName">
                         <el-input v-model="ruleForm.userName" type="text" autocomplete="off" />
                     </el-form-item>
-                    <el-form-item label="密码" prop="password">
+                    <el-form-item label="Password" prop="password">
                         <el-input
                         v-model="ruleForm.password"
                         type="password"
                         autocomplete="off"
                         />
                     </el-form-item>
-                    <el-form-item label="确认密码" prop="password">
+                    <el-form-item label="Confirm Password" prop="password">
                         <el-input
                         v-model="ruleForm.confirmpassword"
                         type="password"

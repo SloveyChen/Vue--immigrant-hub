@@ -8,7 +8,7 @@
             <div class="image">
                 <img src="../assets/img.webp" alt="">
             </div>
-            <div class="text">XXXXXX</div>
+            <div class="text">Follow us to get more immigration advice</div>
         </div>
     </div>
 </template>
@@ -34,6 +34,6 @@ img{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5vw;
+    font-size: 2vw;
 }
 </style>
