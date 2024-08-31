@@ -34,13 +34,14 @@ verify()
                 text-color="#fff"
                 active-text-color="#ffd04b"
             >
-                <el-menu-item index="1" @click="router.push('/mainpageuser')">Home page</el-menu-item>
-                <el-menu-item index="2" @click="router.push('/activity')">Activity</el-menu-item>
-                <el-menu-item index="3" @click="router.push('/aboutus')">About us</el-menu-item>
-                <el-menu-item index="4">News</el-menu-item>
-                <el-menu-item index="5">Life Navigation</el-menu-item>
-                <el-menu-item index="6">Group</el-menu-item>
-                <el-menu-item index="7">Psychological Clinic</el-menu-item>
+                <el-menu-item index="1" @click="router.push('/mainpageuser')" class="menu-item">Home page</el-menu-item>
+                <el-menu-item index="2" @click="router.push('/activity')" class="menu-item">Activity</el-menu-item>
+                <el-menu-item index="3" @click="router.push('/aboutus')" class="menu-item">About us</el-menu-item>
+                <el-menu-item index="4" class="menu-item">News</el-menu-item>
+                <el-menu-item index="5" class="menu-item">Life Navigation</el-menu-item>
+                <el-menu-item index="6" class="menu-item">Group</el-menu-item>
+                <el-menu-item index="7" class="menu-item">Psychological Clinic</el-menu-item>
+
                 <div class="username" @click="logout">Logout</div>
             </el-menu>
         </div>
@@ -50,7 +51,7 @@ verify()
     </div>
 </template>
 
-<style>
+<style scoped>
 .wrapper{
     width: 100vw;
     padding-bottom: 5vh;
@@ -58,14 +59,20 @@ verify()
 .nav{
     width: 100%;
 }
+
+.menu-item {
+    font-size: 18px; 
+    font-weight: bold;
+}
+
 .username{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 20%;
     color: white;
-    font-size: 16;
-    font-weight: 550;
+    font-size: 18px; /
+    font-weight: bold;
     cursor: pointer;
 }
 .username:hover{
