@@ -71,7 +71,7 @@ verify()
     transform: translateY(-50%);
     right: 20%;
     color: white;
-    font-size: 18px; /
+    font-size: 18px; 
     font-weight: bold;
     cursor: pointer;
 }
