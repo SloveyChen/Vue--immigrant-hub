@@ -135,6 +135,8 @@ const login = async () => {
         background-color: rgba(255, 255, 255, 0.5); 
     }
 
+   
+
     /* Facebook and Google style*/
 
     .social-buttons {
@@ -196,6 +198,11 @@ const login = async () => {
     }
 
     a {
-        text-decoration: none;
+        text-decoration: none
+    }
+</style>
+<style>
+ .el-form-item__content{
+        justify-content: center;
     }
 </style>

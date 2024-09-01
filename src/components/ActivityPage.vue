@@ -8,7 +8,7 @@ const totalRating = ref(0)
 const ratingsCount = ref(0)
 
 const updateTotalRating = () => {
-    totalRating.value = value1.value + value2.value
+    totalRating.value = Number(value1.value) + Number(value2.value)
     ratingsCount.value = 2 // 此处为两个评分活动，如果有更多活动，可以相应调整
 }
 
@@ -18,6 +18,21 @@ const result = () => {
         type: 'success',
     })
     updateTotalRating()
+}
+
+
+const getNum = ()=>{
+    console.log('num',totalRating.value,ratingsCount.value)
+    return totalRating.value
+}
+
+const g = ()=>{
+    return ratingsCount.value*5
+}
+
+const a = ()=>{
+     
+    return (totalRating.value/2 ).toFixed(2)
 }
 </script>
 
@@ -50,10 +65,10 @@ const result = () => {
 
     <div class="summary">
         <div class="TEXT">
-            Total Rating: {{ totalRating.value }} points / {{ ratingsCount.value * 5 }} points
+            Total Rating: {{getNum() }} points
         </div>
         <div class="TEXT">
-            Average Rating: {{ (totalRating.value / ratingsCount.value).toFixed(2) }} points
+            Average Rating: {{ a() }} points
         </div>
     </div>
 </template>

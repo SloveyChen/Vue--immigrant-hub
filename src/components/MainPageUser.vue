@@ -31,6 +31,7 @@
     justify-content: center;
     font-size: 2.5vw;
     color: #fff;
+    padding-top: 58%;
 }
 
 .image-container {
@@ -38,11 +39,11 @@
     flex-direction: column; 
     align-items: center;
     gap: 5px; 
+    width: 80vw;
 }
 
 .carousel-image {
-    width: 100%; 
-    height: 300px; 
+    width: 100%;  
     object-fit: cover; 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
