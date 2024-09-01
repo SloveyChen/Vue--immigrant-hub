@@ -24,21 +24,33 @@
     JSON.parse(localStorage.getItem('admin')).forEach(item => {
         tableData.value.push({role: 'Administrator', name: item.name, password: item.password})
     })
+
     const verify = () => {
-        if(ruleForm.userName.length > 10){
-            ElMessage('Username cannot exceed 10 characters!')
-            return false
-        }
-        if(ruleForm.password.length > 16 || ruleForm.password.length < 6){
-            ElMessage('The password length must be between 6 and 16 characters!')
-            return false
-        }
-        if(ruleForm.password !== ruleForm.confirmpassword){
-            ElMessage('Confirm password must be consistent with password!')
-            return false
-        }
-        return true
+    // User name:Only letters and numbers are allowed, 1-10 digits in length
+    const userNameRegex = /^[a-zA-Z0-9]{1,10}$/;
+
+    if (!userNameRegex.test(ruleForm.userName)) {
+        ElMessage('Username must be 1-10 characters long and contain only letters and numbers!');
+        return false;
     }
+
+    // Password: Only letters, numbers, and spaces are allowed, with a length of 6-12 digits
+    const passwordRegex = /^[a-zA-Z0-9 ]{6,12}$/;
+
+    if (!passwordRegex.test(ruleForm.password)) {
+        ElMessage('Password must be 6-12 characters long and contain only letters, numbers, and spaces!');
+        return false;
+    }
+
+    if (ruleForm.password !== ruleForm.confirmpassword) {
+        ElMessage('Confirm password must be consistent with password!');
+        return false;
+    }
+
+    return true;
+};
+
+
     const reg = () => {
         if(verify()){
             if(role.value == 'NormalUser'){
@@ -134,7 +146,6 @@
         box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
     }
 
-    /* 调整 .wrapper 样式，使其背景透明，类似于登录页面 */
     .wrapper {
         position: relative;
         width: 50%;
@@ -142,10 +153,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 1px solid rgba(255, 255, 255, 0.5); /* 半透明边框 */
-        background-color: rgba(255, 255, 255, 0.3); /* 半透明背景色 */
-        box-shadow: 10px 10px 20px 0 rgba(122, 128, 129, 0.5); /* 半透明阴影 */
-        background-color: rgba(255, 255, 255, 0.5); /* 使背景半透明 */
+        border: 1px solid rgba(255, 255, 255, 0.5); 
+        background-color: rgba(255, 255, 255, 0.3); 
+        box-shadow: 10px 10px 20px 0 rgba(122, 128, 129, 0.5); 
+        background-color: rgba(255, 255, 255, 0.5); 
     }
 
     @media all and (max-width: 992px) {
@@ -177,9 +188,9 @@
         font-size: 30px;
         margin-bottom: 20px;
         margin-top: 20px;
-        color: white; /* 使标题文字为白色 */
-        font-weight: bold; /* 使标题加粗 */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加阴影效果 */
+        color: white; 
+        font-weight: bold; 
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     .Login-window {

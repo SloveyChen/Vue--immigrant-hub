@@ -9,7 +9,7 @@ const ratingsCount = ref(0)
 
 const updateTotalRating = () => {
     totalRating.value = Number(value1.value) + Number(value2.value)
-    ratingsCount.value = 2 // 此处为两个评分活动，如果有更多活动，可以相应调整
+    ratingsCount.value = 2 
 }
 
 const result = () => {
@@ -126,7 +126,6 @@ const a = ()=>{
     text-align: center; 
 }
 
-/* 新增的汇总部分样式 */
 .summary {
     margin: 20px auto;
     padding: 20px;

@@ -141,9 +141,9 @@ const login = async () => {
 
     .social-buttons {
         display: flex;
-        justify-content: center; /* 水平居中对齐 */
-        gap: 10px; /* 按钮之间的间距 */
-        margin-top: 20px; /* 调整整体的间距 */
+        justify-content: center; 
+        gap: 10px; 
+        margin-top: 20px; 
     }
 
 
@@ -204,5 +204,6 @@ const login = async () => {
 <style>
  .el-form-item__content{
         justify-content: center;
+        /* font-weight: bold;  */
     }
 </style>

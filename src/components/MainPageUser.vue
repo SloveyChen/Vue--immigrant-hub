@@ -5,13 +5,13 @@
     <div class="wrapper">
         <div class="image-container">
             <div class="image-item">
-                <img src="../assets/image11.jpg" alt="Image 1" class="carousel-image" />
+                <img src="../assets/image00.jpg" alt="Image 1" class="carousel-image" />
             </div>
             <div class="image-item">
                 <img src="../assets/22.jpg" alt="Image 2" class="carousel-image" />
             </div>
             <div class="image-item">
-                <img src="../assets/image00.jpg" alt="Image 3" class="carousel-image" />
+                <img src="../assets/image11.jpg" alt="Image 3" class="carousel-image" />
             </div>
         </div>
     </div>
