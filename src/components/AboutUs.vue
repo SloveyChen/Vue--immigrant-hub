@@ -17,7 +17,7 @@
 .wrapper{
     width: 100%;
     padding: 20px 10%;
-    background: linear-gradient(135deg, #e6e6fa, #d8bfd8); /* 淡淡的紫色渐变背景 */
+    background: linear-gradient(135deg, #e6e6fa, #d8bfd8); 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
