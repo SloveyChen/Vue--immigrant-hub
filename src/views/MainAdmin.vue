@@ -30,7 +30,7 @@ verify()
                 class="el-menu-demo"
                 style="padding: 0 10%;"
                 mode="horizontal"
-                background-color="#409EFF"
+                background-color="#6A5ACD"
                 text-color="#fff"
                 active-text-color="#ffd04b"
             >

@@ -25,8 +25,8 @@
         tableData.value.push({role: 'Administrator', name: item.name, password: item.password})
     })
     const verify = () => {
-        if(ruleForm.userName.length > 20){
-            ElMessage('Username cannot exceed 20 characters!')
+        if(ruleForm.userName.length > 10){
+            ElMessage('Username cannot exceed 10 characters!')
             return false
         }
         if(ruleForm.password.length > 16 || ruleForm.password.length < 6){

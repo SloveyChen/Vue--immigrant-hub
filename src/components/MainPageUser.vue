@@ -3,54 +3,49 @@
 
 <template>
     <div class="wrapper">
-        Find happiness and friends here!
-    </div>
-
-
-    <el-carousel height="500px" indicator-position="outside">
-        <el-carousel-item>
-            <img src="../assets/image3.jpg" alt="Immigration Consulting" class="carousel-image"/>
-        </el-carousel-item>
-        
-        <el-carousel-item>
-            <img src="../assets/image4.jpg" alt="Make friends" class="carousel-image"/>
-        </el-carousel-item>
-       
-        <el-carousel-item>
-            <img src="../assets/img5.jpg" alt="Psychological Counseling" class="carousel-image"/>
-        </el-carousel-item>
-    </el-carousel>
-
-    <div class="wrapper">
-        Here, expand your opportunities to go global!
+        <div class="image-container">
+            <div class="image-item">
+                <img src="../assets/image11.jpg" alt="Image 1" class="carousel-image" />
+            </div>
+            <div class="image-item">
+                <img src="../assets/22.jpg" alt="Image 2" class="carousel-image" />
+            </div>
+            <div class="image-item">
+                <img src="../assets/image00.jpg" alt="Image 3" class="carousel-image" />
+            </div>
+        </div>
     </div>
 </template>
 
 <style scoped>
-.wrapper{
+.wrapper {
     width: 100%;
-    padding: 20px 2%;
+    height: 100vh; 
+    background: url('../assets/background-image.jpg') no-repeat center center;
+    background-size: 100%; 
+    margin: 0; 
+    padding: 0;
+    padding-top: 70px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 2.5vw;
-    text-align: center;
     color: #fff;
-    background: linear-gradient(135deg, #1e90ff, #ff7f50);
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    margin-bottom: 20px; /* 增加下方空隙 */
 }
 
-.wrapper:hover {
-    transform: scale(1.05); 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+.image-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 5px; 
 }
 
 .carousel-image {
-    width: 100%;
-    height: 500px; 
-    object-fit: cover;
+    width: 100%; 
+    height: 300px; 
+    object-fit: cover; 
     border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .footer-text {
