@@ -93,12 +93,14 @@ const login = async () => {
                     </el-form-item>
                     <!-- add Facebook and Google buttom -->
                     <el-form-item>
+                        <div class="social-buttons">
                         <el-button type="primary" icon="el-icon-facebook" class="facebook-btn">
-                            Continue with Facebook
+                            Login with Facebook
                         </el-button>
                         <el-button type="danger" icon="el-icon-google" class="google-btn">
-                            Continue with Google
+                            Login with Google
                         </el-button>
+                        </div>
                     </el-form-item>
                 </el-form>
             </div>
@@ -126,22 +128,31 @@ const login = async () => {
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 1px solid rgba(255, 255, 255, 0.5); /* 半透明边框 */
-        background-color: rgba(255, 255, 255, 0.3); /* 半透明背景色 */
-        box-shadow: 10px 10px 20px 0 rgba(122, 128, 129, 0.5); /* 半透明阴影 */
+        border: 1px solid rgba(255, 255, 255, 0.5); 
+        background-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 10px 10px 20px 0 rgba(122, 128, 129, 0.5);
         margin-top: 30px;
-        background-color: rgba(255, 255, 255, 0.5); /* 使背景半透明 */
+        background-color: rgba(255, 255, 255, 0.5); 
     }
 
     /* Facebook and Google style*/
+
+    .social-buttons {
+        display: flex;
+        justify-content: center; /* 水平居中对齐 */
+        gap: 10px; /* 按钮之间的间距 */
+        margin-top: 20px; /* 调整整体的间距 */
+    }
+
+
     .facebook-btn {
-        background-color: #3b5998; /* Facebook 蓝色 */
+        background-color: #3b5998; /* Facebook */
         color: white;
         margin-right: 10px;
     }
 
     .google-btn {
-        background-color: #db4437; /* Google 红色 */
+        background-color: #db4437; /* Google  */
         color: white;
     }
 
@@ -150,14 +161,20 @@ const login = async () => {
     }
 
     .Login-title {
-        width: 100%;
-        height: 40px;
-        text-align: center;
-        line-height: 40px;
-        font-size: 30px;
-        margin-bottom: 20px;
-        margin-top: 20px;
-    }
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: white;       
+    font-weight: bold;    
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    opacity: 0.9;         
+    font-family: 'Arial', sans-serif;
+}
+
 
     .Login-window {
         width: 80%;

@@ -74,34 +74,34 @@
             <div class="Login-title">Register</div>
             <div class="mb-2 ml-4">
                 <el-radio-group v-model="role">
-                <el-radio value="NormalUser" size="large">User</el-radio>
-                <el-radio value="Administrator" size="large">Administrator</el-radio>
+                    <el-radio value="NormalUser" size="large">User</el-radio>
+                    <el-radio value="Administrator" size="large">Administrator</el-radio>
                 </el-radio-group>
             </div>
             <div class="Login-window">
                 <el-form
-                ref="ruleFormRef"
-                style="max-width: 600px"
-                :model="ruleForm"
-                status-icon
-                label-width="auto"
-                class="demo-ruleForm"
+                    ref="ruleFormRef"
+                    style="max-width: 600px"
+                    :model="ruleForm"
+                    status-icon
+                    label-width="auto"
+                    class="demo-ruleForm"
                 >
                     <el-form-item label="Username" prop="userName">
                         <el-input v-model="ruleForm.userName" type="text" autocomplete="off" />
                     </el-form-item>
                     <el-form-item label="Password" prop="password">
                         <el-input
-                        v-model="ruleForm.password"
-                        type="password"
-                        autocomplete="off"
+                            v-model="ruleForm.password"
+                            type="password"
+                            autocomplete="off"
                         />
                     </el-form-item>
                     <el-form-item label="Confirm Password" prop="password">
                         <el-input
-                        v-model="ruleForm.confirmpassword"
-                        type="password"
-                        autocomplete="off"
+                            v-model="ruleForm.confirmpassword"
+                            type="password"
+                            autocomplete="off"
                         />
                     </el-form-item>
                     <el-form-item>
@@ -124,70 +124,52 @@
 </template>
 
 <style scoped>
-        .tables{
-            width: 100vw;
-            display: flex;
-            justify-content: center;
-        }
-        .table{
-            width: 50vw;
-            box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
-        }
-        @media all and (max-width: 992px) {
-        .wrapper{
-            position: relative;
-            width: 50%;
-            margin: 5vh auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 1px solid #ccc;
-            box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
-            margin-top: 30px;
-            background-color: #fff;
-        }
-        .ref{
+    .tables{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+    .table{
+        width: 50vw;
+        box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
+    }
+
+    /* 调整 .wrapper 样式，使其背景透明，类似于登录页面 */
+    .wrapper {
+        position: relative;
+        width: 50%;
+        margin: 5vh auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.5); /* 半透明边框 */
+        background-color: rgba(255, 255, 255, 0.3); /* 半透明背景色 */
+        box-shadow: 10px 10px 20px 0 rgba(122, 128, 129, 0.5); /* 半透明阴影 */
+        background-color: rgba(255, 255, 255, 0.5); /* 使背景半透明 */
+    }
+
+    @media all and (max-width: 992px) {
+        .wrapper {
             width: 50%;
             margin: 5vh auto;
         }
     }
+
     @media all and (min-width: 992px) {
-        .wrapper{
-            position: relative;
-            width: 30%;
-            margin: 5vh auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 1px solid #ccc;
-            box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
-            margin-top: 30px;
-            background-color: #fff;
-        }
-        .ref{
+        .wrapper {
             width: 30%;
             margin: 5vh auto;
         }
     }
+
     @media all and (max-width: 768px) {
-        .wrapper{
-            position: relative;
-            width: 75%;
-            margin: 5vh auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border: 1px solid #ccc;
-            box-shadow: 10px 10px 20px 0 rgb(122, 128, 129);
-            margin-top: 30px;
-            background-color: #fff;
-        }
-        .ref{
+        .wrapper {
             width: 75%;
             margin: 5vh auto;
         }
     }
-    .Login-title{
+
+    .Login-title {
         width: 100%;
         height: 40px;
         text-align: center;
@@ -195,25 +177,28 @@
         font-size: 30px;
         margin-bottom: 20px;
         margin-top: 20px;
+        color: white; /* 使标题文字为白色 */
+        font-weight: bold; /* 使标题加粗 */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 添加阴影效果 */
     }
-    .Login-window{
+
+    .Login-window {
         width: 80%;
     }
-    .Login-reg{
-        margin-bottom: 20px;
-    }
-    .outer{
+
+    .outer {
         width: 100vw;
         height: 100vh;
-        background: url(../images/background.webp) no-repeat;
+        background: url(../images/image7.jpg) no-repeat;
         background-size: cover;
         display: flex;
         flex-direction: column;
     }     
-    .reg{
+    .reg {
         margin-left: 3vw;
     }
-    a{
+
+    a {
         text-decoration: none;
     }
 </style>
