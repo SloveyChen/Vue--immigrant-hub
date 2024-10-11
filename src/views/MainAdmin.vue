@@ -2,6 +2,7 @@
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import { ElMessage } from 'element-plus'
+import UserTable from "./UserTable.vue";
 const router = useRouter()
 const activeIndex2 = ref('1')
 const verify = () => {
@@ -41,6 +42,7 @@ verify()
         <div class="component">
             <!-- <router-view></router-view> -->
             Welcome administrator login!
+          <user-table></user-table>
         </div>
     </div>
 </template>

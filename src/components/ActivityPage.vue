@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { ElMessage } from 'element-plus'
+import ActivityTable from "./ActivityTable.vue";
 
 const value1 = ref(0)
 const value2 = ref(0)
@@ -9,7 +10,7 @@ const ratingsCount = ref(0)
 
 const updateTotalRating = () => {
     totalRating.value = Number(value1.value) + Number(value2.value)
-    ratingsCount.value = 2 
+    ratingsCount.value = 2
 }
 
 const result = () => {
@@ -31,7 +32,7 @@ const g = ()=>{
 }
 
 const a = ()=>{
-     
+
     return (totalRating.value/2 ).toFixed(2)
 }
 </script>
@@ -49,6 +50,7 @@ const a = ()=>{
             <div class="text">Activity 1: Dating Forum</div>
         </div>
     </div>
+
 
     <div class="wrapper">
         <el-rate v-model="value2" allow-half size="large" @change="result" />
@@ -71,59 +73,63 @@ const a = ()=>{
             Average Rating: {{ a() }} points
         </div>
     </div>
+
+  <div class="summary">
+     <ActivityTable></ActivityTable>
+  </div>
 </template>
 
 <style scoped>
 .wrapper {
     width: 100%;
     padding: 20px 10%;
-    margin-bottom: 40px; 
-    background: linear-gradient(135deg, #e6e6fa, #d8bfd8); 
-    border-radius: 15px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #e6e6fa, #d8bfd8);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
 .wrapper:hover {
-    transform: scale(1.02); 
+    transform: scale(1.02);
 }
 
 .TEXT {
-    font-size: 2vw; 
-    text-align: center; 
-    margin-bottom: 20px; 
+    font-size: 2vw;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .images {
     display: flex;
-    align-items: center; 
+    align-items: center;
     width: 85%;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 .image {
-    flex: 3; 
-    transition: transform 0.3s ease; 
+    flex: 3;
+    transition: transform 0.3s ease;
 }
 
 .image img {
     width: 100%;
-    border-radius: 10px; 
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .image img:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .text {
-    flex: 2; 
+    flex: 2;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2vw; 
-    margin-left: 20px; 
-    text-align: center; 
+    font-size: 2vw;
+    margin-left: 20px;
+    text-align: center;
 }
 
 .summary {
