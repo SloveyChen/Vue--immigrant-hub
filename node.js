@@ -7,7 +7,7 @@ import path from "path";
 const app = express();
 const upload = multer({ dest: "uploads/" });
 
-// 设置SendGrid API密钥
+// Set the SendGrid API key
 sgMail.setApiKey(
   "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"
 );
@@ -29,8 +29,8 @@ app.post("/api/send-email", upload.single("attachment"), async (req, res) => {
     }
 
     const msg = {
-      to: ["chenxiaoguangcxg@hotmail.com", "slovey99521@gmail.com"], // 收件人邮箱
-      from: "chenxiaoguangcxg@hotmail.com", // 您在SendGrid验证过的发件人邮箱
+      to: ["chenxiaoguangcxg@hotmail.com", "slovey99521@gmail.com"], // Recipient's Email
+      from: "chenxiaoguangcxg@hotmail.com", // The sender email address you have verified on SendGrid
       subject: subject,
       text: messageText,
       attachments: attachments,
@@ -38,7 +38,7 @@ app.post("/api/send-email", upload.single("attachment"), async (req, res) => {
 
     await sgMail.send(msg);
 
-    // 删除临时文件
+    // Delete temporary files
     if (attachment) {
       fs.unlinkSync(attachment.path);
     }
