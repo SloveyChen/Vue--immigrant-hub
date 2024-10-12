@@ -91,14 +91,14 @@ const login = async () => {
                         </el-button>
                         <div class="reg"><a href="" @click="router.push('/reg')">Register</a></div>
                     </el-form-item>
-                    <!-- add Facebook and Google buttom -->
+                    <!-- Firebase sigin in and Register -->
                     <el-form-item>
                         <div class="social-buttons">
                         <el-button type="primary" icon="el-icon-facebook" class="facebook-btn">
                             Login with Firebase
                         </el-button>
                         <el-button type="danger" icon="el-icon-google" class="google-btn">
-                            Login with Google
+                            Register with Firebase
                         </el-button>
                         </div>
                     </el-form-item>
