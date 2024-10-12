@@ -95,7 +95,7 @@ const login = async () => {
                     <el-form-item>
                         <div class="social-buttons">
                         <el-button type="primary" icon="el-icon-facebook" class="facebook-btn">
-                            Login with Facebook
+                            Login with Firebase
                         </el-button>
                         <el-button type="danger" icon="el-icon-google" class="google-btn">
                             Login with Google
