@@ -29,7 +29,7 @@ app.post("/api/send-email", upload.single("attachment"), async (req, res) => {
     }
 
     const msg = {
-      to: "chenxiaoguangcxg@hotmail.com", // 收件人邮箱
+      to: ["chenxiaoguangcxg@hotmail.com", "slovey99521@gmail.com"], // 收件人邮箱
       from: "chenxiaoguangcxg@hotmail.com", // 您在SendGrid验证过的发件人邮箱
       subject: subject,
       text: messageText,
