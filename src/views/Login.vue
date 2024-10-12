@@ -2,6 +2,8 @@
 import { reactive, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router';
+//import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '../firebase';
+
 const router = useRouter()
 const role = ref('NormalUser')
 
@@ -94,10 +96,10 @@ const login = async () => {
                     <!-- Firebase sigin in and Register -->
                     <el-form-item>
                         <div class="social-buttons">
-                        <el-button type="primary" icon="el-icon-facebook" class="facebook-btn">
+                        <el-button type="primary" icon="el-icon-facebook" class="firebaseli-btn">
                             Login with Firebase
                         </el-button>
-                        <el-button type="danger" icon="el-icon-google" class="google-btn">
+                        <el-button type="danger" icon="el-icon-google" class="irebaselire">
                             Register with Firebase
                         </el-button>
                         </div>
