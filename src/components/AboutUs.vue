@@ -1,9 +1,10 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
+import axios from "axios";
 
 // 定义表单数据
-const subject = ref('');
-const messageText = ref('');
+const subject = ref("");
+const messageText = ref("");
 const attachment = ref(null);
 
 // 处理文件上传
@@ -12,12 +13,41 @@ const handleFileUpload = (event) => {
 };
 
 // 发送电子邮件函数 (此处只是示例，可以与后端进行集成)
-const sendEmail = () => {
-  console.log('Sending Email:');
-  console.log('Subject:', subject.value);
-  console.log('Message:', messageText.value);
-  console.log('Attachment:', attachment.value ? attachment.value.name : 'No file selected');
+const sendEmail = async () => {
+  console.log("Sending Email:");
+  console.log("Subject:", subject.value);
+  console.log("Message:", messageText.value);
+  console.log(
+    "Attachment:",
+    attachment.value ? attachment.value.name : "No file selected"
+  );
   // 此处可用axios向后端发送请求
+
+  try {
+    const formData = new FormData();
+    formData.append("subject", subject.value);
+    formData.append("messageText", messageText.value);
+    if (attachment.value) {
+      formData.append("attachment", attachment.value);
+    }
+
+    const response = await axios.post("/api/send-email", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    console.log("Email sent successfully:", response.data);
+    // 清空表单
+    subject.value = "";
+    messageText.value = "";
+    attachment.value = null;
+    // 显示成功消息
+    alert("邮件发送成功！");
+  } catch (error) {
+    console.error("Error sending email:", error);
+    alert("发送邮件时出错，请稍后再试。");
+  }
 };
 </script>
 
@@ -25,7 +55,7 @@ const sendEmail = () => {
   <div class="wrapper">
     <div class="images">
       <div class="image">
-        <img src="../assets/img.webp" alt="Image">
+        <img src="../assets/img.webp" alt="Image" />
       </div>
       <div class="text">Follow us to get more immigration advice</div>
     </div>
@@ -36,11 +66,22 @@ const sendEmail = () => {
       <form @submit.prevent="sendEmail">
         <div class="form-group">
           <label for="subject">Title:</label>
-          <input type="text" id="title" v-model="subject" placeholder="Enter email title" required />
+          <input
+            type="text"
+            id="title"
+            v-model="subject"
+            placeholder="Enter email title"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="message">Message:</label>
-          <textarea id="message" v-model="messageText" placeholder="Enter your message" required></textarea>
+          <textarea
+            id="message"
+            v-model="messageText"
+            placeholder="Enter your message"
+            required
+          ></textarea>
         </div>
         <div class="form-group">
           <label for="attachment">Attachment:</label>
@@ -57,7 +98,7 @@ const sendEmail = () => {
 .wrapper {
   width: 100%;
   padding: 20px 10%;
-  background: linear-gradient(135deg, #e6e6fa, #d8bfd8); 
+  background: linear-gradient(135deg, #e6e6fa, #d8bfd8);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -133,7 +174,8 @@ img:hover {
   color: #333;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -170,8 +212,9 @@ button:hover {
   .email-form h2 {
     font-size: 1.2rem;
   }
-  
-  .form-group input, .form-group textarea {
+
+  .form-group input,
+  .form-group textarea {
     font-size: 0.8rem; /* 移动端输入框文本更小 */
   }
 }
