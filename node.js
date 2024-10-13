@@ -27,7 +27,8 @@ app.post("/api/send-email", upload.single("attachment"), async (req, res) => {
         disposition: "attachment",
       });
     }
-
+    
+    console.log("see")
     const msg = {
       to: ["chenxiaoguangcxg@hotmail.com", "slovey99521@gmail.com"], // Recipient's Email
       from: "chenxiaoguangcxg@hotmail.com", // The sender email address you have verified on SendGrid

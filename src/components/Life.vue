@@ -30,7 +30,7 @@ onMounted(() => {
 
 function initMap() {
   const mapOptions = {
-    center: { lat: 38.8951, lng: -77.0364 }, // 华盛顿特区（美国首都）
+    center: { lat: -37.8136, lng: 144.9631 }, // Melbourne (Australia)
     zoom: 12,
   };
   map = new google.maps.Map(mapRef.value, mapOptions);

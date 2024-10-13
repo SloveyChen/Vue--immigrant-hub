@@ -2,17 +2,17 @@
     <div class="auth-container">
       <h2>Firebase Authentication</h2>
       <el-form :model="form">
-        <!-- Email 输入框 -->
+        <!-- Email input box -->
         <el-form-item label="Email">
           <el-input v-model="form.email" placeholder="Email" />
         </el-form-item>
-        <!-- 密码输入框 -->
+       <!-- Password input box -->
         <el-form-item label="Password">
           <el-input v-model="form.password" type="password" placeholder="Password" />
         </el-form-item>
-        <!-- 注册按钮 -->
+        <!-- Register Button -->
         <el-button type="primary" @click="register">Register</el-button>
-        <!-- 登录按钮 -->
+        <!-- Login Button -->
         <el-button type="success" @click="login">Login</el-button>
       </el-form>
     </div>
@@ -22,7 +22,7 @@
   import { ref } from 'vue';
   import { ElMessage } from 'element-plus';
   import { useRouter } from 'vue-router';
-  import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase';
+  import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
   
   const router = useRouter();
   const form = ref({
