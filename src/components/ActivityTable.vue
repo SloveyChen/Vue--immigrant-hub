@@ -84,12 +84,6 @@ const exportToExcel = () => {
   });
   FileSaver.saveAs(data, 'tableData.xlsx');
 };
-// Generate random activities data
-
-
-
-
-
 
 
 
