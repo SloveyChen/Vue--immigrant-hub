@@ -22,7 +22,7 @@
   import { ref } from 'vue';
   import { ElMessage } from 'element-plus';
   import { useRouter } from 'vue-router';
-  import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase'; // 引入 Firebase 配置
+  import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase';
   
   const router = useRouter();
   const form = ref({
@@ -30,7 +30,7 @@
     password: ''
   });
   
-  // Firebase 注册功能
+  // Firebase Register
   const register = async () => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, form.value.email, form.value.password);
@@ -40,14 +40,14 @@
       });
       localStorage.setItem('token', userCredential.user.uid);
       setTimeout(() => {
-        router.push('/mainpageuser'); // 成功注册后跳转页面
+        router.push('/mainpageuser'); 
       }, 1000);
     } catch (error) {
       ElMessage.error(`Registration failed: ${error.message}`);
     }
   };
   
-  // Firebase 登录功能
+  // Firebase Lgoin in
   const login = async () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, form.value.email, form.value.password);
@@ -57,7 +57,7 @@
       });
       localStorage.setItem('token', userCredential.user.uid);
       setTimeout(() => {
-        router.push('/mainpageuser'); // 成功登录后跳转页面
+        router.push('/mainpageuser'); 
       }, 1000);
     } catch (error) {
       ElMessage.error(`Login failed: ${error.message}`);

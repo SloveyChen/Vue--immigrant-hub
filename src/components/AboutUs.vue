@@ -2,17 +2,17 @@
 import { ref } from "vue";
 import axios from "axios";
 
-// 定义表单数据
+// Define form data
 const subject = ref("");
 const messageText = ref("");
 const attachment = ref(null);
 
-// 处理文件上传
+// Handle file upload
 const handleFileUpload = (event) => {
-  attachment.value = event.target.files[0]; // 保存文件对象
+  attachment.value = event.target.files[0]; // Save file object
 };
 
-// 发送电子邮件函数 (此处只是示例，可以与后端进行集成)
+// Send email function (this is just an example, it can be integrated with the backend)
 const sendEmail = async () => {
   console.log("Sending Email:");
   console.log("Subject:", subject.value);
@@ -21,7 +21,7 @@ const sendEmail = async () => {
     "Attachment:",
     attachment.value ? attachment.value.name : "No file selected"
   );
-  // 此处可用axios向后端发送请求
+  // Send email function (this is just an example, it can be integrated with the backend)
 
   try {
     const formData = new FormData();
@@ -38,11 +38,11 @@ const sendEmail = async () => {
     });
 
     console.log("Email sent successfully:", response.data);
-    // 清空表单
+    // Clear form
     subject.value = "";
     messageText.value = "";
     attachment.value = null;
-    // 显示成功消息
+    // Display success message
     alert("邮件发送成功！");
   } catch (error) {
     console.error("Error sending email:", error);
@@ -60,7 +60,7 @@ const sendEmail = async () => {
       <div class="text">Follow us to get more immigration advice</div>
     </div>
 
-    <!-- 添加电子邮件发送表格 -->
+    <!-- Add an email form -->
     <div class="email-form">
       <h2>Email us</h2>
       <form @submit.prevent="sendEmail">
@@ -94,7 +94,7 @@ const sendEmail = async () => {
 </template>
 
 <style scoped>
-/* 调整整体的wrapper样式 */
+/* Adjust the overall wrapper style */
 .wrapper {
   width: 100%;
   padding: 20px 10%;
@@ -133,7 +133,7 @@ img:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem; /* 缩小文本大小 */
+  font-size: 1.2rem; /* Reduce text size */
   padding: 20px;
   background-color: #f9f9f9;
   color: #333;
@@ -145,7 +145,7 @@ img:hover {
   background-color: #e2e6ea;
 }
 
-/* 美化表格样式 */
+/* Beautify table style */
 .email-form {
   margin-top: 50px;
   padding: 20px;
@@ -159,7 +159,7 @@ img:hover {
 .email-form h2 {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  text-align: center; /* 标题居中 */
+  text-align: center; /* Center title */
 }
 
 .form-group {
@@ -168,7 +168,7 @@ img:hover {
 
 .form-group label {
   display: block;
-  font-size: 0.9rem; /* 缩小label文本 */
+  font-size: 0.9rem; /* Shrink label text */
   font-weight: bold;
   margin-bottom: 5px;
   color: #333;
@@ -180,11 +180,11 @@ img:hover {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 0.9rem; /* 缩小输入框文本 */
+  font-size: 0.9rem; /* Shrink the text in the input box */
 }
 
 textarea {
-  height: 80px; /* 调整文本框高度 */
+  height: 80px; /* Adjust text box height */
 }
 
 button {
@@ -206,7 +206,7 @@ button:hover {
 
 @media (max-width: 768px) {
   .text {
-    font-size: 1rem; /* 缩小移动端的文本大小 */
+    font-size: 1rem; /* Reduce text size on mobile devices */
   }
 
   .email-form h2 {
@@ -215,7 +215,7 @@ button:hover {
 
   .form-group input,
   .form-group textarea {
-    font-size: 0.8rem; /* 移动端输入框文本更小 */
+    font-size: 0.8rem; /* The text in the mobile input box is smaller*/
   }
 }
 </style>
