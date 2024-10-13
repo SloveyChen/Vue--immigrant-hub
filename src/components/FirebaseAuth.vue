@@ -22,14 +22,14 @@
   import { ref } from 'vue';
   import { ElMessage } from 'element-plus';
   import { useRouter } from 'vue-router';
-  import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+  import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth } from 'firebase/auth';
   
   const router = useRouter();
   const form = ref({
     email: '',
     password: ''
   });
-  
+  let auth = getAuth()
   // Firebase Register
   const register = async () => {
     try {
@@ -39,9 +39,6 @@
         type: 'success',
       });
       localStorage.setItem('token', userCredential.user.uid);
-      setTimeout(() => {
-        router.push('/mainpageuser'); 
-      }, 1000);
     } catch (error) {
       ElMessage.error(`Registration failed: ${error.message}`);
     }
@@ -66,6 +63,7 @@
   </script>
   
   <style scoped>
+  
   .auth-container {
     width: 400px;
     margin: 50px auto;

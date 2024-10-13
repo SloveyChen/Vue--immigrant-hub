@@ -100,7 +100,7 @@ const login = async () => {
                             Login with Firebase
                         </el-button>
                         <el-button type="danger" icon="el-icon-google" class="irebaselire">
-                            Register with Firebase
+                            Google login
                         </el-button>
                         </div>
                     </el-form-item>
