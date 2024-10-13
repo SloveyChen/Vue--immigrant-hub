@@ -7,6 +7,7 @@ import AboutUs from "../components/AboutUs.vue";
 import Activity from "../components/ActivityPage.vue";
 import MainPageUser from "../components/MainPageUser.vue";
 import Life from "../components/Life.vue";
+import FirebaseAuth from "../components/FirebaseAuth.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -18,6 +19,11 @@ const router = createRouter({
       path: "/login",
       name: "login",
       component: Login,
+    },
+    {
+      path: "/firebase",
+      name: "firebase",
+      component: FirebaseAuth,
     },
     {
       path: "/reg",

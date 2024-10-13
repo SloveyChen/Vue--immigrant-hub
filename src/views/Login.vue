@@ -96,7 +96,7 @@ const login = async () => {
                     <!-- Firebase sigin in and Register -->
                     <el-form-item>
                         <div class="social-buttons">
-                        <el-button type="primary" icon="el-icon-facebook" class="firebaseli-btn">
+                        <el-button type="primary" icon="el-icon-facebook" class="firebaseli-btn" @click="router.push('/firebase')">
                             Login with Firebase
                         </el-button>
                         <el-button type="danger" icon="el-icon-google" class="irebaselire">

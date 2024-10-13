@@ -22,7 +22,7 @@
   import { ref } from 'vue';
   import { ElMessage } from 'element-plus';
   import { useRouter } from 'vue-router';
-  import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '../firebase'; // 引入 Firebase 配置
+  import {  createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase'; // 引入 Firebase 配置
   
   const router = useRouter();
   const form = ref({
